@@ -1,9 +1,5 @@
 package org.example;
 
-import lesson_3.Lesson3Tasks;
-
-import lesson_4.Employee;
-import lesson_4.Park;
 import lesson_5.animals.*;
 import lesson_5.shapes.*;
 
