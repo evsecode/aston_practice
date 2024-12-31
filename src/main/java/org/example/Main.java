@@ -4,37 +4,87 @@ import lesson_3.Lesson3Tasks;
 
 import lesson_4.Employee;
 import lesson_4.Park;
+import lesson_5.animals.*;
+import lesson_5.shapes.*;
 
 public class Main {
     public static void main(String[] args) {
-//        Lesson 3: Execute tasks from Lesson3Tasks
-//        Lesson3Tasks.execute();
+        System.out.println("=== LESSON 5: TASK 1 - Animals ===");
 
-//        Lesson 4
-//        Create an array of 5 employees
-        Employee[] employees = new Employee[5];
-        employees[0] = new Employee("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "892312312", 30000, 30);
-        employees[1] = new Employee("Sarah Connor", "Manager", "sarah.connor@mail.com", "899999123", 40000, 45);
-        employees[2] = new Employee("John Doe", "Developer", "john.doe@mail.com", "877712345", 50000, 35);
-        employees[3] = new Employee("Petr Petrov", "Tester", "petr.petrov@mail.com", "866623789", 25000, 28);
-        employees[4] = new Employee("Samuel Jackson", "Support", "samuel.jackson@mail.com", "855567890", 27000, 40);
+        // Create a bowl with food
+        Bowl bowl = new Bowl(30); // Initial amount of food: 30
+        System.out.println("\nInitial Bowl State: " + bowl);
 
-//        Print information about employees
-        System.out.println("\n--- Employees ---");
-        for (Employee employee : employees) {
-            employee.printInfo();
+        // Create an array of cats
+        Cat[] cats = {
+                new Cat("Tom", 5), // Small appetite for testing
+                new Cat("Mars", 10),
+                new Cat("Garfield", 20)
+        };
+
+        // Cats try to eat
+        System.out.println("\n--- Cats are trying to eat ---");
+        for (Cat cat : cats) {
+            System.out.println(cat.getName() + " is trying to eat...");
+            cat.eat(bowl);
+            System.out.println("Is " + cat.getName() + " full? " + (cat.isFull() ? "Yes" : "No"));
+            System.out.println(bowl); // Current state of the bowl
         }
 
-//        Create a park with attractions
-        Park park = new Park();
-        Park.Attraction attraction1 = park.new Attraction("Burning Man", "10:00 - 22:00", 500);
-        Park.Attraction attraction2 = park.new Attraction("Astro Wheel", "11:00 - 20:00", 300);
-        Park.Attraction attraction3 = park.new Attraction("Haunted House", "12:00 - 23:00", 700);
+        // Add food to the bowl
+        System.out.println("\n--- Adding more food to the bowl ---");
+        bowl.addFood(20);
+        System.out.println("Food added. Current Bowl State: " + bowl);
 
-//        Print information about attractions
-        System.out.println("\n--- Attractions ---");
-        attraction1.printInfo();
-        attraction2.printInfo();
-        attraction3.printInfo();
+        // Cats try to eat again
+        System.out.println("\n--- Cats are trying to eat again ---");
+        for (Cat cat : cats) {
+            if (!cat.isFull()) {
+                System.out.println(cat.getName() + " is trying to eat again...");
+                cat.eat(bowl);
+                System.out.println("Is " + cat.getName() + " full now? " + (cat.isFull() ? "Yes" : "No"));
+                System.out.println(bowl); // Current state of the bowl
+            } else {
+                System.out.println(cat.getName() + " is already full!");
+            }
+        }
+
+        // Create dogs and test running and swimming
+        System.out.println("\n--- Dogs ---");
+        Dog[] dogs = {
+                new Dog("Rex"),
+                new Dog("Buddy")
+        };
+
+        for (Dog dog : dogs) {
+            System.out.println("\n" + dog.getName() + "'s actions:");
+            dog.run(400);  // Test running within limits
+            dog.run(600);  // Test running beyond limits
+            dog.swim(5);   // Test swimming within limits
+            dog.swim(15);  // Test swimming beyond limits
+        }
+
+        // Display total count of animals, cats, and dogs
+        System.out.println("\n--- Animal Count ---");
+        System.out.println("Total Animals: " + Animal.getTotalAnimals());
+        System.out.println("Total Cats: " + Cat.getTotalCats());
+        System.out.println("Total Dogs: " + Dog.getTotalDogs());
+
+        System.out.println("\n=== LESSON 5: TASK 2 - Shapes ===");
+
+        // Create shapes
+        Shape circle = new Circle(5, "Red", "Blue");
+        Shape rectangle = new Rectangle(10, 5, "Green", "Yellow");
+        Shape triangle = new Triangle(3, 4, 5, "White", "Black");
+
+        // Print shape characteristics
+        System.out.println("\n--- Circle Characteristics ---");
+        circle.printCharacteristics();
+
+        System.out.println("\n--- Rectangle Characteristics ---");
+        rectangle.printCharacteristics();
+
+        System.out.println("\n--- Triangle Characteristics ---");
+        triangle.printCharacteristics();
     }
 }
