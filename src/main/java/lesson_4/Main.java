@@ -1,8 +1,5 @@
 package lesson_4;
 
-import lesson_4.Employee;
-import lesson_4.Park;
-
 public class Main {
     public static void main(String[] args) {
 //        Lesson 4
