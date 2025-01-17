@@ -52,7 +52,7 @@ public class Main {
                 try {
                     sum += Integer.parseInt(array[row][col]);
                 } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("Invalid data at position [" + row + "][" + col + "]: '" + array[row][col] + "'");
+                    throw new MyArrayDataException(row, col, array[row][col]);
                 }
             }
         }
