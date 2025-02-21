@@ -7,28 +7,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FactorialCalculatorTest {
+    private final FactorialCalculator calculator = new FactorialCalculator();
+
     @Test
     void testFactorialOfZero() {
-        assertEquals(1, FactorialCalculator.calculate(0));
+        assertEquals(1, calculator.calculate(0));
     }
 
     @Test
     void testFactorialOfOne() {
-        assertEquals(1, FactorialCalculator.calculate(1));
+        assertEquals(1, calculator.calculate(1));
     }
 
     @Test
     void testFactorialOfPositiveNumber() {
-        assertEquals(120, FactorialCalculator.calculate(5));
+        assertEquals(120, calculator.calculate(5));
     }
 
     @Test
     void testFactorialOfLargeNumber() {
-        assertEquals(3628800, FactorialCalculator.calculate(10));
+        assertEquals(3628800, calculator.calculate(10));
     }
 
     @Test
     void testNegativeNumberThrowsException() {
-        assertThrows(IllegalArgumentException.class, () -> FactorialCalculator.calculate(-1));
+        assertThrows(IllegalArgumentException.class, () -> calculator.calculate(-1));
     }
 }
