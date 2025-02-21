@@ -29,21 +29,29 @@ class MtsMainPageTest {
 
     @Test
     void testBlockTitle() {
+        mtsMainPageSteps.closeCookiePopupIfExists();
+
         mtsMainPageSteps.verifyBlockTitle("Онлайн пополнение без комиссии");
     }
 
     @Test
     void testPaymentLogos() {
+        mtsMainPageSteps.closeCookiePopupIfExists();
+
         mtsMainPageSteps.verifyPaymentLogosAreDisplayed();
     }
 
     @Test
     void testMoreInfoLink() {
+        mtsMainPageSteps.closeCookiePopupIfExists();
+
         mtsMainPageSteps.clickMoreInfo();
     }
 
     @Test
     void testPaymentFormSubmission() {
+        mtsMainPageSteps.closeCookiePopupIfExists();
+
         mtsMainPageSteps.fillPaymentFormAndSubmit("297777777", "10", "test@example.com");
         mtsMainPageSteps.verifyPaymentWindowOpened();
     }

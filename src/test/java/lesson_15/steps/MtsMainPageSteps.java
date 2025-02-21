@@ -11,24 +11,24 @@ public class MtsMainPageSteps {
     }
 
     public void verifyBlockTitle(String expectedTitle) {
-        mtsMainPage.closeCookiePopupIfExists();
         Assertions.assertThat(mtsMainPage.getBlockTitle()).isEqualTo(expectedTitle);
     }
 
-    public void verifyPaymentLogosAreDisplayed() {
+    public void closeCookiePopupIfExists() {
         mtsMainPage.closeCookiePopupIfExists();
+    }
+
+    public void verifyPaymentLogosAreDisplayed() {
         Assertions.assertThat(mtsMainPage.arePaymentLogosDisplayed())
                 .as("Логотипы платёжных систем должны отображаться")
                 .isTrue();
     }
 
     public void clickMoreInfo() {
-        mtsMainPage.closeCookiePopupIfExists();
         mtsMainPage.clickMoreInfo();
     }
 
     public void fillPaymentFormAndSubmit(String phone, String amount, String email) {
-        mtsMainPage.closeCookiePopupIfExists();
         mtsMainPage.enterPhoneNumber(phone);
         mtsMainPage.enterAmount(amount);
         mtsMainPage.enterEmail(email);
