@@ -3,6 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 pom.xml.versionsBackup
+build/*
 
 ### IntelliJ IDEA ###
 /.idea
@@ -38,3 +39,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+allure-results/*
